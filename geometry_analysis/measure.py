@@ -24,7 +24,7 @@ def calculate_distance(rA, rB):
 
     Examples
     --------
-    >>> calculate_distance(np.array([0, 0, 0], [0, 0.1, 0]))
+    >>> calculate_distance(np.array([0, 0, 0]),np.array([0, 0.1, 0]))
     0.1
     """
     dist_vec = (rA - rB)
