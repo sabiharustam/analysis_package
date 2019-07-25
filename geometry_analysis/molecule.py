@@ -73,7 +73,7 @@ class Molecule:
             raise TypeError("Name is not a string.")
         
         self.symbols = symbols
-        self.coordinates = coordinates
+        self._coordinates = coordinates
         self.bonds = self.build_bond_list()
     
     @property
