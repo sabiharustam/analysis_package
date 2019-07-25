@@ -1,13 +1,13 @@
 """
 geometry_analysis
-TA python package for the MolSSI Software Summer School.
+A python package for the MolSSI Software Summer School.
 """
 
 # Add imports here
+from .measure import *
 from .molecule import *
 
-# Handle versioneer
-from ._version import get_versions
+# handle versioneer
 versions = get_versions()
 __version__ = versions['version']
 __git_revision__ = versions['full-revisionid']

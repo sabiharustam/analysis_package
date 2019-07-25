@@ -1,70 +1,13 @@
 """
 molecule.py
-TA python package for the MolSSI Software Summer School.
-
-Handles the primary functions
-"""
-"""
-molecule.py
 A python package for the MolSSI Software Summer School.
 
 Contains a molecule class
 """
 
+
 import numpy as np
-
-
-def calculate_distance(rA, rB):
-    """Calculate the distance between points A and B.
-    
-    Parameters
-    ----------
-    rA : numpy array
-        The x, y, z coordinates of point A
-    rB : numpy array
-        The x, y, z coordinates of point B
-    
-    Returns
-    -------
-    distance : float
-        The distance between points A and B.
-    
-    Examples
-    --------
-    >>> calculate_distance(np.array([0, 0, 0], [0, 0.1, 0]))
-    0.1
-    """
-    dist_vec = (rA - rB)
-    distance = np.linalg.norm(dist_vec)
-    return distance
-
-
-def calculate_angle(rA, rB, rC, degrees=False):
-    """Calculate angle between points A, B, and C
-    
-    Parameters
-    ----------
-    rA : numpy array
-        The x, y, z coordinates of point A
-    rB : numpy array
-        The x, y, z coordinates of point B
-    degrees : bool, optional
-        Return the calculated angle in degrees.
-    
-    Returns
-    -------
-    angle : float
-        The distance between points A and B.
-    """
-    AB = rB - rA
-    BC = rB - rC
-
-    theta = np.arccos(np.dot(AB, BC) / (np.linalg.norm(AB) * np.linalg.norm(BC)))
-
-    if degrees:
-        return np.degrees(theta)
-    else:
-        return theta
+from .measure import calculate_angle, calculate_distance
 
 
 class Molecule:
@@ -123,4 +66,20 @@ class Molecule:
 
 if __name__ == "__main__":
     # Do something if this file is invoked on its own
+    random_coordinates = np.random.random([3, 3])
+    name = "my molecule"
+    symbols = ["H", "O", "H"]
+
+    my_molecule = Molecule(name, symbols, random_coordinates)
+
+    print(F'There are {len(my_molecule.bonds)} bonds')
+    print(F'The coordinates are {my_molecule.coordinates}')
+
+    # random_coordinates = np.random.random([3,3])
+    random_coordinates[0] += 100
+
+    my_molecule.coordinates = random_coordinates
+
+    print(F'\n\nThere are {len(my_molecule.bonds)} bonds')
+    print(F'The coordinates are {my_molecule.coordinates}')
     pass
