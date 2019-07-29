@@ -17,8 +17,10 @@ A link to `Google <www.google.com>`_.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Getting Started
+
 	something
+	api
 
 Indices and tables
 ==================
