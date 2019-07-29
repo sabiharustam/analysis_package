@@ -19,8 +19,8 @@ A link to `Google <www.google.com>`_.
    :maxdepth: 2
    :caption: Getting Started
 
-	something
-	api
+   something
+   api
 
 Indices and tables
 ==================
